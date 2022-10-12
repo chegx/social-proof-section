@@ -19,7 +19,7 @@ body {
 }
 
 main {
-  max-width: 600px;
+  max-width: 500px;
   padding: 85px 6.5vw;
   text-align: center;
   font-family: 'League Spartan', sans-serif;
@@ -33,6 +33,7 @@ h1 {
   line-height: 0.85;
   letter-spacing: -0.15rem;
   margin: 0 0 7%;
+  width: 90%;
 }
 
 p {
@@ -46,12 +47,12 @@ h2 {
   font-weight: 700;
 }
 
-.rates {
-  margin-top: 2.5rem;
-  margin-bottom: 3rem;
+ul {
+  list-style-type: none;
+  padding: 1.3rem 0 2rem;
 }
 
-.rate {
+li {
   color: var(--very-dark-magenta);
   background-color: var(--light-grayish-magenta);
   border-radius: 0.5rem;
@@ -83,16 +84,13 @@ img {
   border-radius: 50%;
   width: 40px;
   height: 40px;
-}
-
-.photo-name {
-  display: flex;
-  gap: 20px;
-  align-items: center;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 article h2 {
-  margin: 0 0 5px;
+  margin: 3px 0 5px;
 }
 
 span {
@@ -100,12 +98,12 @@ span {
   font-weight: 400;
 }
 
-.text {
+article p {
   font-size: 1rem;
   margin-top: 1.6rem;
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:768px) {
   body {
     background-image: url(../images/bg-pattern-top-desktop.svg), url(../images/bg-pattern-bottom-desktop.svg);
     background-size: auto;
@@ -114,83 +112,90 @@ span {
   main {
     padding: 8vw 11.5vw 7vw;
     max-width: unset;
+    display: grid;
+    gap: 1rem;
   }
 
+  header {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    width: 65%;
+    text-align: left;
+  }
+  
   h1 {
     font-size: 3.5rem;
-    margin: 0 0 7%;
-    width: 90%;
   }
 
+  ul {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    margin-left: auto;
+    align-self: center;
+    width: 78%;
+  }
+  
   .stars {
     margin: unset;
   }
 
-  .rate {
+  li {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     gap: 1rem;
     padding: 5px 20px;
-    width: 33vw;
-    max-width: 410px;
+    width: 400px;
   }
 
-  #top-section {
-    display: grid;
-    justify-content: space-between;
+  li:nth-child(2) {
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  header {
-    grid-column: 1 / span 2;
-    grid-row: 1;
-    width: 75%;
-    max-width: 450px;
-    text-align: left;
-  }
-
-  .rates {
-    grid-column: 3;
-    grid-row: 1;
-    margin-top: 25px;
-  }
-
-  .reviews {
-    margin-left: -7vw;
-  }
-
-  .guru {
-    margin-left: -3.5vw;
-  }
-
-  #bottom-section {
-    display: grid;
-    column-gap: 2vw;
-    justify-content: space-between;
-    margin-top: 3%;
+ li:nth-child(3) {
+    margin-left: auto;
   }
 
   article {
-    max-width: 300px;
+    width: 20vw;
     margin-bottom: unset;
-    padding-bottom: 23px;
+    padding: 2.5rem 2rem 0.8rem;
   }
 
-  .first {
+  article:nth-child(3) {
     grid-column: 1;
     grid-row: 2;
   }
 
-  .second {
+article:nth-child(4) {
     grid-column: 2;
-    grid-row: 3;
-    margin-top: -218px;
+    grid-row: 2;
+    transform: translateY(20px);
   }
 
-  .third {
+  article:last-child {
     grid-column: 3;
-    grid-row: 4;
-    margin-top: -218px;
+    grid-row: 2;
+    transform: translateY(40px);
   }
 }
+
+@media screen and (min-width:768px) and (max-width: 1020px) {
+  ul {
+    margin-left: 0;
+  }
+
+  li {
+    flex-direction: column;
+    gap: 0;
+    padding-top: 15px;
+    width: 65%;
+  }
+
+  li:nth-child(n) {
+    margin-left: 50%;
+  }
+}
+
